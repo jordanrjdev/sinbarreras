@@ -1,0 +1,27 @@
+services:
+  frontend-sinbarreras:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: frontend-sinbarreras
+    environment:
+      - HOST=0.0.0.0
+    container_name: frontend-sinbarreras-container
+    command: npm start
+    volumes:
+      - ./frontend/:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 5000:5000
+  backend-sinbarreras:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: backend-sinbarreras
+    container_name: backend-sinbarreras-conteiner
+    command: npm run dev
+    volumes:
+      - ./backend/:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 4000:4000
