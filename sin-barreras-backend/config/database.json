@@ -1,0 +1,8 @@
+{
+  "engine": "mysql",
+  "host": "localhost",
+  "port": 3606,
+  "user": "root",
+  "password": "root",
+  "database": "sinbarreras"
+}
