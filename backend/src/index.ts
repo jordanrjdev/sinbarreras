@@ -1,5 +1,6 @@
 import express from "express";
 import IndexRoutes from "./routes/index.routes";
+import UserRoutes from "./routes/users.routes";
 import path from "path";
 import cors from "cors";
 
@@ -13,6 +14,7 @@ app.use(
 );
 app.use(express.json());
 app.use(IndexRoutes);
+app.use(UserRoutes);
 
 app.use(express.static(path.join(__dirname, "public")));
 

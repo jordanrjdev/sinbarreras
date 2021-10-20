@@ -1,9 +1,8 @@
 export interface User {
-  id?: string;
-  name: string;
-  
-  password: string;
-  email: string;
+  user_id?: number;
+  username: string;
+  avatar_id?: number;
+  score: number;
 }
 
 export interface Login {
