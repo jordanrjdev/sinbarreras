@@ -1,22 +1,22 @@
-import express from "express";
-import IndexRoutes from "./routes/index.routes";
-import UserRoutes from "./routes/users.routes";
-import path from "path";
-import cors from "cors";
+import express from 'express';
+import AvatarRoutes from './routes/avatar.routes';
+import UserRoutes from './routes/users.routes';
+import path from 'path';
+import cors from 'cors';
 
 const app: express.Application = express();
 const PORT = 4000;
 
 app.use(
   cors({
-    origin: "*",
+    origin: '*',
   })
 );
 app.use(express.json());
-app.use(IndexRoutes);
+app.use(AvatarRoutes);
 app.use(UserRoutes);
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(PORT, () => {
   console.log(`Express with Typescript! http://localhost:${PORT}`);
