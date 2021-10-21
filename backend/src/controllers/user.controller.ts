@@ -60,10 +60,33 @@ export async function deleteUser(req: Request, res: Response) {
   }
 }
 
-export function login(req: Request, res: Response) {
+export async function login(req: Request, res: Response) {
   const { username } = req.body;
 
-  const token = jwt.sign({ username }, "secret", { expiresIn: "5h" });
-
-  res.status(200).json({ token });
+  try {
+    const conn = await connect();
+    const result = await conn.query<RowDataPacket[]>(
+      "SELECT * FROM funsiba.user WHERE username = ?",
+      [username]
+    );
+    if (result[0].length === 0) {
+      return res.status(404).json({ status: "error", msg: "User not found" });
+    } else {
+      const user = result[0][0];
+      const token = jwt.sign(
+        {
+          user_id: user.user_id,
+          username: user.username,
+          avatar_id: user.avatar_id,
+          score: user.score,
+        },
+        "secret",
+        { expiresIn: "1h" }
+      );
+      res.status(200).json({ status: "success", token });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ status: "error", msg: error });
+  }
 }

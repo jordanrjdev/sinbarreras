@@ -4,6 +4,7 @@ import {
   deleteUser,
   getAllUsers,
   getUser,
+  login,
 } from "../controllers/user.controller";
 
 const router: Router = Router();
@@ -11,6 +12,8 @@ const router: Router = Router();
 router.route("/user").post(createUser);
 
 router.route("/users").get(getAllUsers);
+
+router.route("/login").post(login);
 
 router.route("/user/:id").get(getUser);
 
