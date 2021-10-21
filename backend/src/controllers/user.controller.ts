@@ -24,7 +24,7 @@ export async function getAllUsers(req: Request, res: Response) {
   try {
     const conn = await connect();
     const result = await conn.query<RowDataPacket[]>(
-      `SELECT * FROM funsiba.user;`
+      `SELECT user.*, avatar.url FROM funsiba.user, funsiba.avatar WHERE user.avatar_id = avatar.avatar_id;`
     );
     res.status(200).json(result[0]);
   } catch (e) {
@@ -38,7 +38,7 @@ export async function getUser(req: Request, res: Response) {
   try {
     const conn = await connect();
     const result = await conn.query<RowDataPacket[]>(
-      "SELECT * FROM funsiba.user WHERE user_id = ?",
+      "SELECT u.*, a.url FROM funsiba.user u , avatar a  WHERE u.avatar_id = a.avatar_id AND user_id = ?;",
       [user_id]
     );
     res.status(200).json(result[0][0]);
@@ -61,13 +61,13 @@ export async function deleteUser(req: Request, res: Response) {
 }
 
 export async function login(req: Request, res: Response) {
-  const { username } = req.body;
+  const { username, avatar_id } = req.body;
 
   try {
     const conn = await connect();
     const result = await conn.query<RowDataPacket[]>(
-      "SELECT * FROM funsiba.user WHERE username = ?",
-      [username]
+      "SELECT * FROM funsiba.user u, avatar a WHERE u.avatar_id = a.avatar_id AND u.username = ? AND u.avatar_id = ?;",
+      [username, avatar_id]
     );
     if (result[0].length === 0) {
       return res.status(404).json({ status: "error", msg: "User not found" });
@@ -83,10 +83,10 @@ export async function login(req: Request, res: Response) {
         "secret",
         { expiresIn: "1h" }
       );
-      res.status(200).json({ status: "success", token });
+      res.status(200).json({ status: true, token });
     }
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ status: "error", msg: error });
+    return res.status(500).json({ status: false, msg: error });
   }
 }
