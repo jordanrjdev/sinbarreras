@@ -1,0 +1,59 @@
+:root {
+  --white: #eef9f7;
+  --black: #515151;
+  --shadow: rgba(81, 81, 81, 0.5);
+  --purple: #604676;
+  --pink: #eb6e80;
+  --cyan: #4abdac;
+  --yellow: #f7b733;
+  --orange: #fc4a1a;
+  --navbar-width: 19rem;
+}
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  outline: none;
+}
+html,
+body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--white);
+  font-family: 'Luckiest Guy', cursive;
+}
+
+a {
+  text-decoration: none;
+  color: var(--purple);
+}
+
+a:visited {
+  color: var(--purple);
+}
+
+label {
+  display: block;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-padding: 0.4em 0;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  outline: none;
+}
