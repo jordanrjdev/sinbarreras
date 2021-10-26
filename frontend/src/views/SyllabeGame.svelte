@@ -5,6 +5,7 @@
   import { quintOut, elasticOut } from 'svelte/easing';
   import { draggable } from '../js/dragdrop';
   import { navigate } from 'svelte-routing';
+  import { onMount } from 'svelte';
 
   const putInSyllabe = (item, index) => {
     console.log(index);

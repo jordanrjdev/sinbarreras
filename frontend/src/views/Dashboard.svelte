@@ -5,7 +5,6 @@
   import NavBar from '../components/NavBar.svelte';
   import Header from '../components/Header.svelte';
   import Score from '../components/common/Score.svelte';
-  import Roulette from '../components/Roulette.svelte';
   onMount(() => {
     if (!$userStore.userName) {
       navigate('/login', { replace: true });

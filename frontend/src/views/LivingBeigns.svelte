@@ -1,10 +1,11 @@
 <script>
-  import { livingBeignsStore } from '../store/store';
+  import { livingBeignsStore, userStore } from '../store/store';
   import { flip } from 'svelte/animate';
   import { crossfade } from 'svelte/transition';
   import { quintOut, elasticOut } from 'svelte/easing';
   import { draggable } from '../js/dragdrop';
   import { navigate } from 'svelte-routing';
+  import { onMount } from 'svelte';
 
   const putInItems = item => {
     let items = $livingBeignsStore.items;
@@ -102,6 +103,11 @@
       `,
       };
     },
+  });
+  onMount(() => {
+    if (!$userStore.userName) {
+      navigate('/login', { replace: true });
+    }
   });
 </script>
 
