@@ -13,7 +13,7 @@
     navigate('/login', { replace: true });
   };
   onMount(async () => {
-    const res = await fetch('https://sinbarreras.heroku.app/api/subjects');
+    const res = await fetch('https://sinbarreras.herokuapp.com/api/subjects');
     const subjects = await res.json();
     subjectStore.update(state => ({
       ...state,

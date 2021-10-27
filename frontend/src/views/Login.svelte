@@ -6,7 +6,7 @@
   import { onMount } from 'svelte';
 
   onMount(async () => {
-    const res = await fetch('https://sinbarreras.heroku.app/api/users');
+    const res = await fetch('https://sinbarreras.herokuapp.com/api/users');
     const users = await res.json();
     loginStore.update(state => ({
       ...state,

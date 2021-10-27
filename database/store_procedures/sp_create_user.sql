@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`%` PROCEDURE `sp_create_user`(in username varchar(50), in avatar_id int, out error varchar(255))
+CREATE DEFINER=`uvwtydrb2icr6dgz`@`%` PROCEDURE `sp_create_user`(in username varchar(50), in avatar_id int, out error varchar(255))
 BEGIN
 DECLARE EXIT HANDLER FOR SQLEXCEPTION
 	BEGIN
