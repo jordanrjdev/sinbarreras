@@ -31,7 +31,7 @@
       avatar_id,
     };
     console.log(data);
-    const res = await fetch('http://localhost:4000/user', {
+    const res = await fetch('https://sinbarreras.heroku.app/api/user', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +44,7 @@
     }));
   };
   onMount(async () => {
-    const res = await fetch('http://localhost:4000/avatars');
+    const res = await fetch('https://sinbarreras.heroku.app/api/avatars');
     const avatars = await res.json();
     avatarStore.set({ ...$avatarStore, avatars });
   });
