@@ -14,6 +14,7 @@
   };
   onMount(async () => {
     const res = await fetch('https://sinbarreras.herokuapp.com/subjects');
+    // const res = await fetch('http://localhost:4000/subjects');
     const subjects = await res.json();
     subjectStore.update(state => ({
       ...state,

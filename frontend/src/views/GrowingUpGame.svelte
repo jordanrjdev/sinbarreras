@@ -20,10 +20,9 @@
 <main>
   <div class="information-container">
     <h1>Adivina Adivinador</h1>
-    <LabelWord backgroundColor="yellow" />
-    <LabelWord backgroundColor="cyan" />
-    <LabelWord backgroundColor="orange" />
-    <LabelWord backgroundColor="purple" />
+    {#each $growingUpGameStore.words as word}
+      <LabelWord {word} />
+    {/each}
   </div>
   <div>
     <div class="game-container">

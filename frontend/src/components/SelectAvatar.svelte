@@ -38,6 +38,13 @@
       },
       body: JSON.stringify(data),
     });
+    // const res = await fetch('http://localhost:4000/user', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(data),
+    // });
     userStore.update(state => ({
       ...state,
       avatar: $userStore.avatar.url,
@@ -45,6 +52,7 @@
   };
   onMount(async () => {
     const res = await fetch('https://sinbarreras.herokuapp.com/avatars');
+    // const res = await fetch('http://localhost:4000/avatars');
     const avatars = await res.json();
     avatarStore.set({ ...$avatarStore, avatars });
   });

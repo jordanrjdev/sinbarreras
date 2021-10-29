@@ -20,9 +20,6 @@
         inerts = inerts.filter(i => i != item);
       }
     }
-    console.log(items);
-    console.log(beigns);
-    console.log(inerts);
   };
 
   const putInBeign = item => {

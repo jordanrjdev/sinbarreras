@@ -90,7 +90,7 @@
     left: 0;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    animation: iniciar 5s;
+    animation: iniciar 15s;
   }
 
   .flip {
@@ -98,7 +98,7 @@
   }
 
   @keyframes iniciar {
-    20%,
+    10%,
     90% {
       transform: rotateY(180deg);
       z-index: -1;

@@ -38,7 +38,7 @@
       ) {
         console.log(letter);
         let words = $growingUpGameStore.words;
-        words.push($growingUpGameStore.letters.join(''));
+        words[$growingUpGameStore.win] = $growingUpGameStore.letters.join('');
         if ($growingUpGameStore.games.length - 1 !== $growingUpGameStore.win) {
           growingUpGameStore.update(state => ({
             ...state,
@@ -49,12 +49,19 @@
         } else {
           growingUpGameStore.update(state => ({
             ...state,
-            win: 0,
-            words: [],
+            words,
             letters: [],
-            hits: 0,
           }));
-          navigate('/congratulations', { replace: true });
+          setTimeout(() => {
+            navigate('/congratulations', { replace: true });
+            growingUpGameStore.update(state => ({
+              ...state,
+              win: 0,
+              words: [],
+              letters: [],
+              hits: 0,
+            }));
+          }, 1000);
         }
       }
       value = '';

@@ -1,9 +1,8 @@
 <script>
-  export let backgroundColor;
   export let word = '';
 </script>
 
-<div style="background-color: var(--{backgroundColor});">
+<div style="background-color: var(--yellow);">
   <span>{word || ''}</span>
 </div>
 
@@ -18,5 +17,6 @@
   }
   span {
     color: var(--white);
+    font-size: 2rem;
   }
 </style>

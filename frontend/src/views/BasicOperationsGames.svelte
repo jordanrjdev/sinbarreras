@@ -84,7 +84,7 @@
   });
 </script>
 
-<main>
+<div class="main">
   <div class="information-container">
     <h1>ARRASTRA Y RESUELVE LAS OPERACIONES</h1>
     <div class="cart" on:dropped={e => putInInformation(e.detail)}>
@@ -144,10 +144,10 @@
       <div class="item column5"><span>12</span></div>
     </div>
   </div>
-</main>
+</div>
 
 <style>
-  main {
+  .main {
     height: 100%;
     width: 100%;
     background-color: var(--cyan);
@@ -155,7 +155,7 @@
     flex-direction: row-reverse;
   }
 
-  main > div:nth-child(2) {
+  .main > div:nth-child(2) {
     width: 70%;
     height: 100%;
     display: flex;

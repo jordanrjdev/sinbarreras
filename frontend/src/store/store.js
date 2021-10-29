@@ -50,7 +50,7 @@ export const growingUpGameStore = writable({
       word: 'bombero',
     },
   ],
-  words: [],
+  words: [null, null, null],
   letters: [],
   hits: 0,
   win: 0,
@@ -69,9 +69,9 @@ export const basicOperationsStore = writable({
 export const syllabeStore = writable({
   items: [
     { id: 1, name: 'CA', color: 'cyan' },
-    { id: 2, name: 'GO', color: 'yellow' },
-    { id: 3, name: 'JU', color: 'purple' },
-    { id: 4, name: 'JA', color: 'orange' },
+    { id: 2, name: 'GO', color: 'orange' },
+    { id: 3, name: 'JU', color: 'orange' },
+    { id: 4, name: 'JA', color: 'yellow' },
     { id: 5, name: 'SA', color: 'cyan' },
     { id: 6, name: 'CA', color: 'yellow' },
   ],

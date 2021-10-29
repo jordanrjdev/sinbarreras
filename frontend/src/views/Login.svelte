@@ -7,6 +7,7 @@
 
   onMount(async () => {
     const res = await fetch('https://sinbarreras.herokuapp.com/users');
+    // const res = await fetch('http://localhost:4000/users');
     const users = await res.json();
     loginStore.update(state => ({
       ...state,
